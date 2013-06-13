@@ -1,0 +1,2 @@
+[AHRD-Score 1.0]	IPR002569	Peptide methionine sulphoxide reductase MsrA
+
