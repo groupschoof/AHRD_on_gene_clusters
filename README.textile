@@ -32,15 +32,13 @@ h2. Installation
 
 You need ruby, version 1.8.7 or greater.
 
-bc.
-git clone git://github.com/groupschoof/AHRD_on_gene_clusters.git
+bc. git clone git://github.com/groupschoof/AHRD_on_gene_clusters.git
 
 h2. Usage
 
-bc.
-ruby generate_ahrd_for_gene_cluster_run.rb [path_to_your_analysis.rb]
+bc. ruby generate_ahrd_for_gene_cluster_run.rb [path_to_your_analysis.rb]
 
-Then adjust the well documented paths inside the above @path_to_your_analysis.rb@ - or the default @ahrd_on_gene_clusters_<today's date>.rb@.
+Then adjust the _well_ documented paths inside the above @path_to_your_analysis.rb@ - or the default @ahrd_on_gene_clusters_<today's date>.rb@.
 
 Finally run it and give it quite some time…
 
