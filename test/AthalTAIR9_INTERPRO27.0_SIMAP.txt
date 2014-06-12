@@ -1,1 +1,0 @@
-/home/proj_pcb/ITAG/pipe001/batch012/ahrd/input/interpro/AthalTAIR9_INTERPRO27.0_SIMAP.txt
