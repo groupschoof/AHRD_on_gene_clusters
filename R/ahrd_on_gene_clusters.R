@@ -109,7 +109,7 @@ annotateCluster <- function(fam, ipr.annos, interpro.database) {
     fltrd.iprs.fams <- fltrd.iprs[as.logical(lapply(fltrd.iprs, function(x) interpro.database[[x]]$TYPE == 
         "Family"))]
     smr <- summary(factor(all.ipr.annos[which(all.ipr.annos %in% fltrd.iprs)]))
-    if (!is.null(smr) && length(smr) > 1) {
+    if (!is.null(smr) && length(smr) > 0) {
         ipr.freqs <- smr/length(fam)
         iprs <- if (!is.null(fltrd.iprs.fams) && length(fltrd.iprs.fams) > 0 && max(ipr.freqs[fltrd.iprs.fams], 
             na.rm = TRUE) >= 0.5) {
