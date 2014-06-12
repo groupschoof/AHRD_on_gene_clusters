@@ -4,7 +4,7 @@ Automated Assignment of Human Readable Descriptions on Gene Clusters generated b
 
 h2. Introduction
 
-"AHRD_on_gene_clusters" is small Ruby project that annotates Gene Clusters with Human Readable Descriptions. Gene Clusters are sets of amino acid sequence of significant similarity. Typcially they are found -or generated- by the following method:
+"AHRD_on_gene_clusters" is small Ruby project that annotates Gene Clusters with Human Readable Descriptions. Gene Clusters are sets of amino acid sequence of significant similarity. Typcially they are found, or generated, by the following method:
 
 1. A database is decided upon: Use the proteome of the organism you are invetigating, typically all freshly sequenced Amina Acid Sequences and join it with reference proteomes.
 2. Run a Blast "all vs all" search, finding for each protein those it is significantly similar to.
@@ -29,6 +29,8 @@ For each gene in the current cluster:
 5. Generate a HRD as follows: "[AHRD-Score] TAB interpro_id TAB InterPro-Type TAB InterPro-Name"
 
 h2. Installation
+
+There are *two versions* of AHRD_on_gene_clusters. The first one is written in Ruby and its installation is explained below. The second one is an R package which you find as *branch 'R_implementation'* in this repository.
 
 You need ruby, version 1.8.7 or greater.
 
