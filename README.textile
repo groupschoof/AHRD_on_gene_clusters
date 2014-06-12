@@ -10,7 +10,7 @@ h2. Introduction
 2. Run a Blast "all vs all" search, finding for each protein those it is significantly similar to.
 3. Based on the resulting BLAST scores cluster above Proteins using a Markov Clustering approach as implemented in OrthoMCL
 
-The resultin clusters can be interpreted as gene families and enable several conclusions and interpretations: Like gene expansion or loss in a certain organism, phylogenetic reconstruction in order to reconstruct the evolutionary history of the genes of your interest etc.
+The resulting clusters can be interpreted as gene families and enable several conclusions and interpretations: Like gene expansion or loss in a certain organism, phylogenetic reconstruction in order to reconstruct the evolutionary history of the genes of your interest etc.
 
 The problem is, that no cluster has a *short, concise, and trustworthy human readable description* that gives you a quick overview of what kind of gene family you are dealing with here. And typically you have many such clusters. - In the Tomato genome for istance we had 17,490!
 
@@ -26,7 +26,7 @@ For each gene in the current cluster:
 2. Assign it as the cluster's HRD
 3. Compute the HRD's score as the annotation frequency of the InterPro Family in the current cluster. That is the fraction of the cluster's Proteins annotated with this InterPro Family.
 4. If _no_ InterPro Family reaches the custom _threshhold_ frequency of 0.5, use any other InterPro annotation, for instance a Domain.
-5. Generate a HRD as follows: "[AHRD-Score] TAB interpro_id TAB InterPro-Type TAB InterPro-Name"
+5. Generate a HRD as a named list. Two slots are present for each Gene Family's HRD: @most.frequent.IPRs@ and @frequency@. The first one holds each most frequent InterPro entry as a list, each of which has the slots @SHORT.NAME@, and @ID@, among others.
 
 h2. Installation
 
