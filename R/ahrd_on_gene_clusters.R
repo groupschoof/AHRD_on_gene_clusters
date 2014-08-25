@@ -13,6 +13,8 @@ parseInterProTag <- function(xml.node) {
         function(x) xmlGetAttr(x, "ipr_ref")))
     ipr.contains <- as.character(lapply(getNodeSet(xml.node, "./contains/rel_ref"), 
         function(x) xmlGetAttr(x, "ipr_ref")))
+    ipr.name <- as.character(lapply(getNodeSet(xml.node, "./name"),
+        function(x) xmlValue(x, recursive=FALSE, trim=TRUE)))
     list(ID = ipr.id, PARENTS = ipr.prnts, CONTAINS = ipr.contains, TYPE = xmlGetAttr(xml.node, 
         "type"), SHORT.NAME = xmlGetAttr(xml.node, "short_name"))
 } 
