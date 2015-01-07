@@ -1,4 +1,4 @@
-parseInterProTag <- function(xml.node) {
+parseInterProTag <- function(xml.node, include.abstracts=TRUE) {
     # Use library XML to parse a single InterPro tag and extract ID,
     # SHORT.NAME, PARENT-, and CONTAINS-list. 
     #
@@ -15,21 +15,28 @@ parseInterProTag <- function(xml.node) {
         function(x) xmlGetAttr(x, "ipr_ref")))
     ipr.name <- as.character(lapply(getNodeSet(xml.node, "./name"),
         function(x) xmlValue(x, recursive=FALSE, trim=TRUE)))
-    list(ID = ipr.id, PARENTS = ipr.prnts, CONTAINS = ipr.contains, TYPE = xmlGetAttr(xml.node, 
-        "type"), SHORT.NAME = xmlGetAttr(xml.node, "short_name"))
+    ipr.tag <- list(ID = ipr.id, PARENTS = ipr.prnts, CONTAINS = ipr.contains, TYPE = xmlGetAttr(xml.node, 
+        "type"), SHORT.NAME = xmlGetAttr(xml.node, "short_name"), NAME=ipr.name)
+    if ( include.abstracts ) {
+      ipr.tag[['ABSTRACT']] <- as.character(lapply(getNodeSet(xml.node, "./abstract"),
+          function(x) xmlValue(x, trim=TRUE)))
+    }
+    ipr.tag
 } 
 
-parseInterProXML <- function(path.2.xml) {
+parseInterProXML <- function(path.2.xml, include.abstracts=TRUE) {
     # Read and parse the InterPro XML database.
     #
     # Args:
     #  path.2.xml : The file path to the interpro.xml document
+    #  include.abstracts : If TRUE the quite long abstract texts will be added
+    #                      to the result.     
     #
     # Returns: A named list of lists, each of which is the result of parsing a
     # single InterPro XML node with function parseInterProTag(...).
     #    
     ipr.db <- lapply(getNodeSet(xmlInternalTreeParse(path.2.xml), "//interpro"), 
-        parseInterProTag)
+        parseInterProTag, include.abstracts=include.abstracts)
     names(ipr.db) <- as.character(mclapply(ipr.db, function(x) x$ID))
     # return
     ipr.db
