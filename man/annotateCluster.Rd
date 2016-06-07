@@ -5,10 +5,10 @@
 \title{Each gene family (cluster of amino acid sequences) has members that in turn
 might have InterPro annotations in argument 'ipr.annos'. Those are filtered
 in order to retain only those that are NOT contained in others and those
-that are NOT parents of others. Here, "others" refers to InterPro
+that are NOT parents of others. Here, 'others' refers to InterPro
 annotations found for genes of the cluster of course. The family 'fam' is
 then assigned the most frequent InterPro family(s), if their respective
-frequency is at least 0.5. If no such "frequent" InterPro family annotation
+frequency is at least 0.5. If no such 'frequent' InterPro family annotation
 is found, the most frequent InterPro annotation regardless of its type are
 used. In most cases these are of type domain.}
 \usage{
@@ -22,7 +22,7 @@ holding the gene accessions, and the second holding the annotated InterPro
 entry}
 
 \item{interpro.databas}{the database of InterPro entries as parsed from the
-interpro XML document "interpro.xml". The format is a named list of named
+interpro XML document 'interpro.xml'. The format is a named list of named
 lists. See parseInterProXML(...) for more details.}
 }
 \value{
@@ -34,10 +34,10 @@ short descriptions.
 Each gene family (cluster of amino acid sequences) has members that in turn
 might have InterPro annotations in argument 'ipr.annos'. Those are filtered
 in order to retain only those that are NOT contained in others and those
-that are NOT parents of others. Here, "others" refers to InterPro
+that are NOT parents of others. Here, 'others' refers to InterPro
 annotations found for genes of the cluster of course. The family 'fam' is
 then assigned the most frequent InterPro family(s), if their respective
-frequency is at least 0.5. If no such "frequent" InterPro family annotation
+frequency is at least 0.5. If no such 'frequent' InterPro family annotation
 is found, the most frequent InterPro annotation regardless of its type are
 used. In most cases these are of type domain.
 }

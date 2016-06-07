@@ -2,7 +2,10 @@
 % Please edit documentation in R/ahrd_on_gene_clusters.R
 \name{parseInterProXML}
 \alias{parseInterProXML}
-\title{Read and parse the InterPro XML database.}
+\title{Read and parse the InterPro XML database. If you have parallel installed and
+sufficient cores, it is highly recommended to use as many cores as you have
+to speed up parsing of the InterPro database. Also, save it for later use,
+so it does not have to be parsed again. See example for details.}
 \usage{
 parseInterProXML(path.2.xml, include.abstracts = TRUE)
 }
@@ -14,9 +17,18 @@ added to the result.}
 }
 \value{
 A named list of lists, each of which is the result of parsing a
-single InterPro XML node with function parseInterProTag(...).
+single InterPro XML node with function \code{parseInterProTag(...)}.
 }
 \description{
-Read and parse the InterPro XML database.
+Read and parse the InterPro XML database. If you have parallel installed and
+sufficient cores, it is highly recommended to use as many cores as you have
+to speed up parsing of the InterPro database. Also, save it for later use,
+so it does not have to be parsed again. See example for details.
+}
+\examples{
+options("mc.cores"=detectCores())
+ipr.db <- parseInterProXML( "./interpro.xml" )
+save( ipr.db, file="ipr_db.RData" )
+
 }
 
