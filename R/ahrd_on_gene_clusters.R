@@ -101,10 +101,12 @@ filterInterProClusterAnnotations <- function(ipr.ids, interpro.database = ipr.db
 #' used. In most cases these are of type domain.
 #'
 #' @param fam a character vector of gene accessions
-#' @param ipr.anno a data.frame with - at least - two columns, the first
-#' holding the gene accessions, and the second holding the annotated InterPro
-#' entry
-#' @param interpro.databas the database of InterPro entries as parsed from the
+#' @param ipr.annos a data.frame with - at least - two columns (named
+#' \code{"V1"} and \code{"V2"}), the first holding the gene accessions, and the
+#' second holding the annotated InterPro entry. Note, that is highly important
+#' that this data.frame has unique rows. Duplicated entries will bias the
+#' frequency estimation. Use \code{unique(ipr.annos)} if necessary. 
+#' @param interpro.database the database of InterPro entries as parsed from the
 #' interpro XML document 'interpro.xml'. The format is a named list of named
 #' lists. See parseInterProXML(...) for more details.
 #'
@@ -113,7 +115,7 @@ filterInterProClusterAnnotations <- function(ipr.ids, interpro.database = ipr.db
 #' short descriptions.
 #' @export
 annotateCluster <- function(fam, ipr.annos, interpro.database) {
-    all.ipr.annos <- ipr.annos[which(ipr.annos$V1 %in% fam), "V2"]
+    all.ipr.annos <- ipr.annos[which(ipr.annos[,1] %in% fam), 2]
     fltrd.iprs <- filterInterProClusterAnnotations(all.ipr.annos, interpro.database = ipr.db)
     fltrd.iprs.fams <- fltrd.iprs[as.logical(lapply(fltrd.iprs, function(x) interpro.database[[x]]$TYPE == 
         "Family"))]

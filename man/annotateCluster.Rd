@@ -17,11 +17,13 @@ annotateCluster(fam, ipr.annos, interpro.database)
 \arguments{
 \item{fam}{a character vector of gene accessions}
 
-\item{ipr.anno}{a data.frame with - at least - two columns, the first
-holding the gene accessions, and the second holding the annotated InterPro
-entry}
+\item{ipr.annos}{a data.frame with - at least - two columns (named
+\code{"V1"} and \code{"V2"}), the first holding the gene accessions, and the
+second holding the annotated InterPro entry. Note, that is highly important
+that this data.frame has unique rows. Duplicated entries will bias the
+frequency estimation. Use \code{unique(ipr.annos)} if necessary.}
 
-\item{interpro.databas}{the database of InterPro entries as parsed from the
+\item{interpro.database}{the database of InterPro entries as parsed from the
 interpro XML document 'interpro.xml'. The format is a named list of named
 lists. See parseInterProXML(...) for more details.}
 }

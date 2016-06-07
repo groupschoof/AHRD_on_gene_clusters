@@ -55,8 +55,10 @@ mcl.fams <- list( 'group1'=c( 'AT2G98278', 'Solyc4G29337' ), 'group2'=c( ...
 
 # Have the InterPro annotations ready in a data.frame. The data.frame is required
 # to have two columns, in which the first is to hold the gene accession and the
-# second the annotated InterPro entry.
-gene.2.ipr.df <- load.table( 'my.ipr.annos.csv', stringsAsFactors=FALSE )
+# second the annotated InterPro entry. In order to get correct frequencies it is
+# necessary to ensure that each protein's InterPro annotation only appears once.
+# To ensure use unique(...) after reading in the InterPro annotations.
+gene.2.ipr.df <- unique( read.table( 'my.ipr.annos.csv', stringsAsFactors=FALSE ) )
 
 # Load the downloaded InterPro database into memory:
 ipr.db <- parseInterProXML( './interpro.xml' ) 
