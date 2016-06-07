@@ -4,11 +4,11 @@ Automated Assignment of Human Readable Descriptions on Gene Clusters generated b
 
 h2. Introduction
 
-"AHRD_on_gene_clusters" is small R project that annotates Gene Clusters with Human Readable Descriptions. Gene Clusters are sets of amino acid sequence of significant similarity. Typcially they are found, or generated, by the following method:
+"AHRD_on_gene_clusters" is small R project that annotates Gene Clusters with Human Readable Descriptions. Gene Clusters are sets of amino acid sequence of significant similarity. Typically they are found, or generated, by the following method:
 
-1. A database is decided upon: Use the proteome of the organism you are invetigating, typically all freshly sequenced Amina Acid Sequences and join it with reference proteomes.
+1. A database is decided upon: Use the proteome of the organism you are investigating, typically all freshly sequenced Amino Acid Sequences, and join it with reference proteomes.
 2. Run a Blast "all vs all" search, finding for each protein those it is significantly similar to.
-3. Based on the resulting BLAST scores cluster above Proteins using a Markov Clustering approach as implemented in OrthoMCL
+3. Based on the resulting BLAST scores cluster above Proteins using a Markov Clustering approach as implemented in OrthoMCL or just the plain MCL
 
 The resulting clusters can be interpreted as gene families and enable several conclusions and interpretations: Like gene expansion or loss in a certain organism, phylogenetic reconstruction in order to reconstruct the evolutionary history of the genes of your interest etc.
 
