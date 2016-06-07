@@ -32,8 +32,14 @@ h2. Installation
 
 You need R version >= 3
 
+bc. require(devtools)
+install_github("groupschoof/AHRD_on_gene_clusters@v0.2")
+
+Or, if you do not want to use @devtools@:
+
 bc. git clone https://github.com/groupschoof/AHRD_on_gene_clusters.git
 cd AHRD_on_gene_clusters
+git checkout tags/v0.2
 R CMD INSTALL .
 
 h2. Usage
