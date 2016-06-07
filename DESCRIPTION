@@ -1,10 +1,20 @@
 Package: AHRD.on.gene.clusters
 Type: Package
-Title: AHRD.on.gene.clusters assigns human readable descriptions to gene families
+Title: AHRD.on.gene.clusters assigns human readable descriptions to gene
+    families
 Version: 1.0
 Date: 2014-06-12
 Author: Asis Hallab
 Maintainer: <hallab@mpipz.mpg.de>
-Description: OrthoMCL or InParanoid generate clusters of proteins, that share a significant sequence similarity. Those clusters are interpreted as gene families sharing a common ancestor. Typically such a clustering results in tens of thousands of families, that require short human redable descriptions in order to enable the quick identification of families of interest. AHRD.on.gene.clusters does just that.
-Depends: R (>= 3.0), parallel (>= 3.0), XML (>= 3.95)
+Description: OrthoMCL or InParanoid generate clusters of proteins, that share a
+    significant sequence similarity. Those clusters are interpreted as gene families
+    sharing a common ancestor. Typically such a clustering results in tens of
+    thousands of families, that require short human redable descriptions in order to
+    enable the quick identification of families of interest. AHRD.on.gene.clusters
+    does just that.
+Depends:
+    R (>= 3.0),
+    parallel (>= 3.0),
+    XML (>= 3.95)
 License: GPL 3.0
+RoxygenNote: 5.0.1
